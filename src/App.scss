@@ -4,5 +4,19 @@ html, body {
 
 }
 .App {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text, input {
+  display: inline-block;
+  height: 40vh;
+  width: 40vw;
+  background-color: purple;
   color: white;
+  margin: 1em;
+  text-align: center;
+  font-size: 1.2em;
+  overflow: auto;
 }
