@@ -1,26 +1,33 @@
 import React, { Component } from 'react';
 import './App.css';
 const marked = require('marked');
+marked.setOptions({
+  renderer: new marked.Renderer(),
+  breaks: true,
+  sanitize: true,
+});
 
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      input: '',
-      mkd: ''
+      input: preview,
+      mkd: marked(preview)
     }
+  }
+
+  parseHTML = (str) => {
+    return {__html: str};
   }
 
   handleChange = (event) => {
     const input = event.target.value;
     const mkdHtml = marked(input);
-    // const parser = new DOMParser();
-    // const test = parser.parseFromString(testStr, "text/html");
     this.setState({
       input: input,
       mkd: mkdHtml
-    })
+    });
   }
 
   render() {
@@ -28,24 +35,21 @@ class App extends Component {
       <div className="App">
 
               <textarea
-                className="text"
+                className="textInput"
                 placeholder = {"Enter markdown here"}
                 wrap="soft"
                 value={ this.state.input }
                 onChange={this.handleChange}
                 />
 
-              <textarea
-                className="text"
-                placeholder = {"Preview will appear here"}
-                value = {this.state.mkd}
-                disabled
-                />
-
-
+              <div
+                className="textOutput"
+                dangerouslySetInnerHTML={this.parseHTML(this.state.mkd)} />
       </div>
     );
   }
 }
+
+const preview = "Heading \n======= \n \nSub-heading\n-----------\n\n### Another deeper heading\n\n*italic*, **bold**, \n\n `monospace`, ~~strikethrough~~ .\n\nShopping list:\n* pencils\n* paper\n* ruler";
 
 export default App;
