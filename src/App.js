@@ -50,6 +50,6 @@ class App extends Component {
   }
 }
 
-const preview = "Heading \n======= \n \nSub-heading\n-----------\n\n### Another deeper heading\n\n*italic*, **bold**, \n\n `monospace`, ~~strikethrough~~ .\n\nShopping list:\n* pencils\n* paper\n* ruler";
+const preview = "Heading \n======= \n \nSub-heading\n-----------\n\n### Another deeper heading\n\n*italic*, **bold**, \n\n `monospace`, ~~strikethrough~~ .\n\nShopping list:\n* pencils\n* paper\n* ruler \n\n ## Drag bottom right corner to resize.";
 
 export default App;

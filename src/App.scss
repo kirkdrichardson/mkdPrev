@@ -33,4 +33,5 @@ html, body {
 .textOutput {
   @extend .textInput;
   background-color: $outputWell;
+  resize: both;
 }
