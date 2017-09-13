@@ -1,6 +1,10 @@
+$bkgColor: #A99F96 ;
+$inputWell: #6B7CA3;
+$outputWell: #8C719E;
+$text: #FFF8F2;
 
 html, body {
-  background-color: #222;
+  background-color: $bkgColor;
 
 }
 .App {
@@ -9,14 +13,24 @@ html, body {
   justify-content: center;
 }
 
-.text, input {
+.textInput {
   display: inline-block;
-  height: 40vh;
+  height: 60vh;
   width: 40vw;
-  background-color: purple;
-  color: white;
-  margin: 1em;
-  text-align: center;
+  background-color: $inputWell;
+  color: $text;
+  margin: 70px 30px;
+  text-align: left;
   font-size: 1.2em;
   overflow: auto;
+  padding-left: 15px;
+  padding-top: 20px;
+  border: solid 2px #D6D0CB;
+  box-shadow: 5px 5px 5px gray;
+  border-radius: 5px;
+}
+
+.textOutput {
+  @extend .textInput;
+  background-color: $outputWell;
 }
